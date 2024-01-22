@@ -1,0 +1,13 @@
+from telebot import TeleBot, types
+
+TOKEN='YOUR TOKEN'
+
+bot=TeleBot(TOKEN)
+
+@bot.message_handler()
+def get_id(msg:types.Message):
+    bot.send_message(msg.from_user.id, f'Your id: {msg.from_user.id}, chat id: {msg.chat.id}')
+
+
+
+bot.infinity_polling()
